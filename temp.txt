@@ -1,0 +1,57 @@
+Initial WoF commit
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: Ing. František Kajánek <kajanek6@fri.uniza.sk>
+#
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   TODO.txt
+#	new file:   build.xml
+#	new file:   build/built-jar.properties
+#	new file:   build/classes/Dvere$1.class
+#	new file:   build/classes/Dvere.class
+#	new file:   build/classes/Hra.class
+#	new file:   build/classes/Hrac.class
+#	new file:   build/classes/IDvere.class
+#	new file:   build/classes/IItem.class
+#	new file:   build/classes/Isic.class
+#	new file:   build/classes/Item.class
+#	new file:   build/classes/ItemType.class
+#	new file:   build/classes/Kluc.class
+#	new file:   build/classes/Mapa.class
+#	new file:   build/classes/Miestnost.class
+#	new file:   build/classes/NazvyPrikazov.class
+#	new file:   build/classes/Parser.class
+#	new file:   build/classes/PodmienkyVstupu.class
+#	new file:   build/classes/Prikaz.class
+#	new file:   build/classes/Wof00.class
+#	new file:   build/classes/ZamykatelneDvere.class
+#	new file:   manifest.mf
+#	new file:   nbproject/build-impl.xml
+#	new file:   nbproject/genfiles.properties
+#	new file:   nbproject/private/private.properties
+#	new file:   nbproject/private/private.xml
+#	new file:   nbproject/project.properties
+#	new file:   nbproject/project.xml
+#	new file:   src/Dvere.java
+#	new file:   src/Hra.java
+#	new file:   src/Hrac.java
+#	new file:   src/IDvere.java
+#	new file:   src/IItem.java
+#	new file:   src/Isic.java
+#	new file:   src/Item.java
+#	new file:   src/ItemType.java
+#	new file:   src/Kluc.java
+#	new file:   src/Mapa.java
+#	new file:   src/Miestnost.java
+#	new file:   src/NazvyPrikazov.java
+#	new file:   src/Parser.java
+#	new file:   src/PodmienkyVstupu.java
+#	new file:   src/Prikaz.java
+#	new file:   src/Wof00.java
+#	new file:   src/ZamykatelneDvere.java
+#

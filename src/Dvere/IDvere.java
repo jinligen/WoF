@@ -1,3 +1,8 @@
+package Dvere;
+
+import Hrac.Hrac;
+import Hra.Miestnost;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,8 +13,6 @@
  *
  * @author kajanek6
  */
-enum ItemType {
-    ITEM_KARTA,
-    ITEM_EQUIP_TOPANKY,
-    ITEM_KLUC,
+public interface IDvere {
+    Miestnost skusPrechod(Miestnost odkial, Hrac hrac);
 }

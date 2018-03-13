@@ -1,3 +1,9 @@
+package Hra;
+
+
+import Hrac.Hrac;
+import Dvere.IDvere;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -34,7 +40,7 @@ public class Dvere implements IDvere {
             case PODMIENKA_ZIADNA:
                 break;
             case PODMIENKA_ISIC:
-                if (jeVstup && hrac.maItem("ISIC"))
+                if (jeVstup && hrac.getInventar().maItem("ISIC"))
                     return null;
                 break;
             case PODMIENKA_KLUC:

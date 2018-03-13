@@ -1,4 +1,11 @@
+package Hra;
 
+
+import Hrac.Hrac;
+import Itemy.Isic;
+import Itemy.Kluc;
+import Dvere.ZamykatelneDvere;
+import Dvere.IDvere;
 import java.util.ArrayList;
 
 /*

@@ -1,3 +1,5 @@
+package Hra;
+
 /**
  * Trieda Miestnost realizuje jednu miestnost/priestor v celom priestore hry.
  * Kazda "miestnost" je z inymi miestnostami spojena vychodmi. 
@@ -10,6 +12,8 @@
  * @author  lokalizacia: Lubomir Sadlon, Jan Janech
  * @version 2012.02.21
  */
+import Itemy.IItem;
+import Dvere.IDvere;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

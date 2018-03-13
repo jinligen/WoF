@@ -1,24 +1,28 @@
-
-import java.util.ArrayList;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Hrac;
+
+import Hra.Prikaz;
+import Itemy.IItem;
+import java.util.ArrayList;
 
 /**
  *
  * @author kajanek6
  */
-public class Hrac {
-    private String meno;
+public class Inventar {
     private ArrayList<IItem> inventar;
 
-    public Hrac(String meno) {
-        this.meno = meno;
+    public Inventar() {
         this.inventar = new ArrayList<>();
-    }    
+    }
+
+    public ArrayList<IItem> getInventar() {
+        return inventar;
+    }
     
     public boolean zoberItemDoInventara(IItem item) {
         this.inventar.add(item);
@@ -61,17 +65,6 @@ public class Hrac {
         for (IItem item : inventar) {
             if (item.getNazov().equals(nazov))
                return true; 
-        }
-        return false;
-    }
-    
-    public boolean maKlucKDveram(ZamykatelneDvere dvere) {
-        for (IItem item : inventar) {
-            if (item.getTyp() == ItemType.ITEM_KLUC) {
-                Kluc kluc = (Kluc)item;
-                if (kluc.getDvere() == dvere)
-                    return true;
-            }   
         }
         return false;
     }
