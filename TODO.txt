@@ -1,0 +1,14 @@
+Vykonavanie prikazu nie je v prikaze
+teleportovanie
+combat
+hrac - inventar, atributy, skilly, vybava(isic,navleky) + equipment sloty
+boss - janech, rektor
+levely
+npc + interactive object
+questy
+isic ako rozsireny s udajmi
+nakupovanie od npc/objektu
+miestnosti s podmienkou (isic/navleky)
+pridat zadavanie mena
+
+tajomne kluce
