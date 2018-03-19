@@ -41,4 +41,8 @@ public class Hrac {
         }
         return false;
     }
+    
+    public void nasadItem(String nazov) {
+        inventar.nasadItem(nazov);
+    }
 }

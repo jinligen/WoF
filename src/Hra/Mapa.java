@@ -1,11 +1,13 @@
 package Hra;
 
 
+import Dvere.Dvere;
 import Hrac.Hrac;
 import Itemy.Isic;
 import Itemy.Kluc;
 import Dvere.ZamykatelneDvere;
 import Dvere.IDvere;
+import Itemy.ItemType;
 import java.util.ArrayList;
 
 /*
@@ -125,6 +127,10 @@ public class Mapa {
         if (novaMiestnost == null) {
             System.out.println("Nemate opravnenie na vstup!");
         } else {
+            if (novaMiestnost.isTrebaNavleky()) {
+               if (!hrac.getInventar().maEquipnute(ItemType.ITEM_NAVLEKY))
+                   return;
+            }
             this.aktualnaMiestnost = novaMiestnost;
             this.aktualnaMiestnost.vypisVychody();
         }

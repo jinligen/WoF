@@ -23,6 +23,7 @@ public class Miestnost {
     private String nazov;
     private HashMap<String, IDvere> miestnosti;
     private ArrayList<IItem> predmety;
+    private boolean trebaNavleky;
 
     /**
      * Vytvori miestnost popis ktorej je v parametrom.
@@ -36,6 +37,15 @@ public class Miestnost {
         this.nazov = nazov;
         this.miestnosti = new HashMap<>();
         this.predmety = new ArrayList<>();
+        this.trebaNavleky = false;
+    }
+    
+    public Miestnost(String nazov, String popis, boolean trebaNavleky) {
+        this.popisMiestnosti = popis;
+        this.nazov = nazov;
+        this.miestnosti = new HashMap<>();
+        this.predmety = new ArrayList<>();
+        this.trebaNavleky = trebaNavleky;
     }
     
     public void pridajItemDoMiestnosti(IItem item) {
@@ -112,5 +122,9 @@ public class Miestnost {
         
         predmety.remove(hladany);
         return hladany;
+    }
+
+    public boolean isTrebaNavleky() {
+        return trebaNavleky;
     }
 }

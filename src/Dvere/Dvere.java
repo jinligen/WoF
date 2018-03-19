@@ -1,8 +1,10 @@
-package Hra;
+package Dvere;
 
 
 import Hrac.Hrac;
 import Dvere.IDvere;
+import Hra.Miestnost;
+import Hra.PodmienkyVstupu;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

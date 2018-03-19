@@ -3,22 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/Hra.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/Miestnost.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/PodmienkyVstupu.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/IDvere.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/Hrac.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/Dvere.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/Prikaz.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/Mapa.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/ZamykatelneDvere.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/Isic.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/Kluc.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/NazvyPrikazov.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/Parser.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/ItemType.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/Item.java</file>
-            <file>file:/C:/Users/kajanek6/Downloads/02priklady/01wof26022018/src/IItem.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Itemy/ItemType.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Hra.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Dvere.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hrac/Inventar.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hrac/Hrac.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Itemy/IItem.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Mapa.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Miestnost.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Dvere/IDvere.java</file>
         </group>
     </open-files>
 </project-private>

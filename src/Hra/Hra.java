@@ -138,6 +138,15 @@ public class Hra  {
                     System.out.println("Dvere nevyzaduju kluc.");
                 }
                 return false;
+            case "nasad":
+                if (!prikaz.maParameter()) {
+                    System.out.println("Aky item?");
+                    return false;
+                }
+
+                String nazovItemu = prikaz.getParameter();
+                hrac.nasadItem(nazovItemu);
+                return false;
             default:
                 return false;
         }
@@ -154,7 +163,7 @@ public class Hra  {
         this.mapa.getAktualnaMiestnost().vypisVychody();
         System.out.println();
         System.out.println("Mozes pouzit tieto prikazy:");
-        System.out.println("chod ukonci pomoc zobrazInventar popisItemu kuk zober otocKlucom");
+        System.out.println("chod ukonci pomoc zobrazInventar popisItemu kuk zober otocKlucom nasad");
     }
 
     /** 
