@@ -11,4 +11,10 @@ nakupovanie od npc/objektu
 miestnosti s podmienkou (isic/navleky)
 pridat zadavanie mena
 
-tajomne kluce
+NPC:
+co mozme robit
+aktivity - napr kup item
+inventar npc
+predat - peniaze sa daju do isicu
+priklad npc - vratnicka, bufetarka,
+upratovacka, automat na kavu

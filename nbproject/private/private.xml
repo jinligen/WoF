@@ -3,13 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Itemy/ItemType.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Dvere/Dvere.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/NPC/IPokecatelny.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/NPC/Vratnik.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Hra.java</file>
-            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Dvere.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Mapa.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Itemy/ItemType.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Itemy/Item.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hrac/SlotyInventara.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Itemy/EquippableItem.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/NazvyPrikazov.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Dvere/ZamykatelneDvere.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hrac/Inventar.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Itemy/Navleky.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hrac/Hrac.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Itemy/IItem.java</file>
-            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Mapa.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Miestnost.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Dvere/IDvere.java</file>
         </group>

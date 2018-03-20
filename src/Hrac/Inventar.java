@@ -41,6 +41,11 @@ public class Inventar {
     }
 
     public void vypisInventar() {
+        for (EquippableItem item : this.sloty) {
+            if (item != null) {
+                System.out.println(item.getSlot().getPopis() + ": " + item.getNazov());
+            }
+        }
         for (IItem item : this.inventar) {
             System.out.print(item.getNazov() + " ");
         }
@@ -96,6 +101,7 @@ public class Inventar {
             }
             sloty[slotId] = equipItem;
             this.odoberItemZInventara(equipItem);
+            System.out.println("Item " + equipItem.getNazov() + " bol uspesne nasadeny.");
         } else {
             System.out.println("Tento item sa neda nasadit.");
             return;
@@ -104,7 +110,7 @@ public class Inventar {
     
     public boolean maEquipnute(ItemType typ) {
         for (EquippableItem item : sloty) {
-            if (item.getTyp() == typ)
+            if (item != null && item.getTyp() == typ)
                 return true;
         }
         return false;

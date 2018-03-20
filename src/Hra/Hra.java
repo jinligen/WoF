@@ -5,6 +5,7 @@ import Hrac.Hrac;
 import Itemy.IItem;
 import Dvere.ZamykatelneDvere;
 import Dvere.IDvere;
+import NPC.IPokecatelny;
 
 /**
  * Trieda Hra je hlavna trieda aplikacie "World of FRI".
@@ -86,6 +87,11 @@ public class Hra  {
             System.out.println("Nerozumiem, co mas na mysli...");
             return false;
         }
+        
+        if (this.hrac.getAktualnyPokecatelny() != null) {
+            this.hrac.getAktualnyPokecatelny().spracujPrikaz(prikaz);
+            return false;
+        }
 
         String nazovPrikazu = prikaz.getNazov();
         
@@ -147,6 +153,22 @@ public class Hra  {
                 String nazovItemu = prikaz.getParameter();
                 hrac.nasadItem(nazovItemu);
                 return false;
+            case "pokecaj":
+                if (!prikaz.maParameter()) {
+                    System.out.println("Aky npc?");
+                    return false;
+                }
+
+                String nazovNpc = prikaz.getParameter();
+                IPokecatelny npc = this.mapa.getAktualnaMiestnost().dajNpc(nazovNpc);
+                if (npc == null) {
+                    System.out.println("Npc sa nenaslo.");
+                    return false;
+                }
+                
+                this.hrac.setAktualnyPokecatelny(npc);
+                npc.getPrikazy();
+                return false;
             default:
                 return false;
         }
@@ -163,7 +185,7 @@ public class Hra  {
         this.mapa.getAktualnaMiestnost().vypisVychody();
         System.out.println();
         System.out.println("Mozes pouzit tieto prikazy:");
-        System.out.println("chod ukonci pomoc zobrazInventar popisItemu kuk zober otocKlucom nasad");
+        System.out.println("chod ukonci pomoc zobrazInventar popisItemu kuk zober otocKlucom nasad pokecaj");
     }
 
     /** 

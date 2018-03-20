@@ -14,6 +14,7 @@ package Hra;
  */
 import Itemy.IItem;
 import Dvere.IDvere;
+import NPC.IPokecatelny;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +25,7 @@ public class Miestnost {
     private HashMap<String, IDvere> miestnosti;
     private ArrayList<IItem> predmety;
     private boolean trebaNavleky;
+    private HashMap<String, IPokecatelny> npc;
 
     /**
      * Vytvori miestnost popis ktorej je v parametrom.
@@ -38,6 +40,7 @@ public class Miestnost {
         this.miestnosti = new HashMap<>();
         this.predmety = new ArrayList<>();
         this.trebaNavleky = false;
+        this.npc = new HashMap<>();
     }
     
     public Miestnost(String nazov, String popis, boolean trebaNavleky) {
@@ -46,10 +49,26 @@ public class Miestnost {
         this.miestnosti = new HashMap<>();
         this.predmety = new ArrayList<>();
         this.trebaNavleky = trebaNavleky;
+        this.npc = new HashMap<>();
     }
     
     public void pridajItemDoMiestnosti(IItem item) {
         this.predmety.add(item);
+    }
+    
+    public void pridajNpcDoMiestnosti(IPokecatelny npc) {
+        this.npc.put(npc.getNazov(), npc);
+    }
+    
+    public void vypisNpc() {
+        for (IPokecatelny npc : npc.values()) {
+            System.out.print(npc.getNazov() + " ");
+        }
+        System.out.println();
+    }
+    
+    public IPokecatelny dajNpc(String meno) {
+        return this.npc.get(meno);
     }
 
     /**

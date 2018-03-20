@@ -10,16 +10,22 @@ package Hrac;
  * @author kajanek6
  */
 public enum SlotyInventara {
-    HLAVA(0), 
-    TELO(1),
-    NOHY(2),
-    MAX_SLOTOV(3);
+    HLAVA(0,"Hlava"), 
+    TELO(1, "Telo"),
+    NOHY(2, "Nohy"),
+    MAX_SLOTOV(3, "");
     private final int id;
-    SlotyInventara(int id) {
+    private final String popis;
+    SlotyInventara(int id, String popis) {
         this.id = id;
+        this.popis = popis;
     }
     
     public int getValue() {
         return this.id;
+    }
+    
+    public String getPopis() {
+        return this.popis;
     }
 }

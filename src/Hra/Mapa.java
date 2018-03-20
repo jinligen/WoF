@@ -8,6 +8,7 @@ import Itemy.Kluc;
 import Dvere.ZamykatelneDvere;
 import Dvere.IDvere;
 import Itemy.ItemType;
+import Itemy.Navleky;
 import java.util.ArrayList;
 
 /*
@@ -41,7 +42,7 @@ public class Mapa {
         Miestnost kancelaria = new Miestnost("kancelaria","kancelaria spravcu pocitacoveho laboratoria");
         // infocentrum
         // vratnica
-        Miestnost fra12 = new Miestnost("FRA12", "Najs ucebna");
+        Miestnost fra12 = new Miestnost("FRA12", "Najs ucebna", true);
         Miestnost chodba = new Miestnost("chodba","Pozor smyka sa");
         Miestnost vytah = new Miestnost("vytah","nefunguje");
         Miestnost infocentrum = new Miestnost("infocentrum", "Questnovna");
@@ -96,6 +97,7 @@ public class Mapa {
         // pridavanie predmetov
         vratnica.pridajItemDoMiestnosti(new Kluc("StriebornyKluc","",-1, labakKancelaria));
         infocentrum.pridajItemDoMiestnosti(new Isic());
+        bufet.pridajItemDoMiestnosti(new Navleky("Navleky", "Made in China",20));
 
         this.aktualnaMiestnost = terasa;  // startovacia miestnost hry
     }
@@ -128,8 +130,10 @@ public class Mapa {
             System.out.println("Nemate opravnenie na vstup!");
         } else {
             if (novaMiestnost.isTrebaNavleky()) {
-               if (!hrac.getInventar().maEquipnute(ItemType.ITEM_NAVLEKY))
+               if (!hrac.getInventar().maEquipnute(ItemType.ITEM_NAVLEKY)) {
+                   System.out.println("Su potrebne navleky."); 
                    return;
+               }
             }
             this.aktualnaMiestnost = novaMiestnost;
             this.aktualnaMiestnost.vypisVychody();
