@@ -1,11 +1,13 @@
 package Hrac;
 
 
+import Inventar.Inventar;
 import Itemy.ItemType;
 import Itemy.Kluc;
 import Itemy.IItem;
 import Dvere.ZamykatelneDvere;
 import Hra.Prikaz;
+import Inventar.InventarHraca;
 import NPC.IPokecatelny;
 import java.util.ArrayList;
 
@@ -21,16 +23,16 @@ import java.util.ArrayList;
  */
 public class Hrac {
     private String meno;
-    private Inventar inventar;
+    private InventarHraca inventar;
     private IPokecatelny aktualnyPokecatelny;
 
     public Hrac(String meno) {
         this.meno = meno;
-        this.inventar = new Inventar();
+        this.inventar = new InventarHraca();
         this.aktualnyPokecatelny = null;
     }
 
-    public Inventar getInventar() {
+    public InventarHraca getInventar() {
         return inventar;
     }
     

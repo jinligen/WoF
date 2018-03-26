@@ -12,7 +12,7 @@ import Hra.Prikaz;
  * @author kajanek6
  */
 public interface IPokecatelny {
-    void spracujPrikaz(Prikaz prikaz);
+    boolean spracujPrikaz(Prikaz prikaz);
     void getPrikazy();
     String getNazov();
 }

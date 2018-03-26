@@ -9,6 +9,7 @@ import Dvere.ZamykatelneDvere;
 import Dvere.IDvere;
 import Itemy.ItemType;
 import Itemy.Navleky;
+import NPC.Vratnik;
 import java.util.ArrayList;
 
 /*
@@ -23,11 +24,11 @@ import java.util.ArrayList;
  */
 public class Mapa {
     private Miestnost aktualnaMiestnost;
-    private Hrac hrac;
+    private Hra hra;
 
-    public Mapa(Hrac hrac) {
+    public Mapa(Hra hra) {
+        this.hra = hra;
         this.vytvorMiestnosti();
-        this.hrac = hrac;
     }
 
     /**
@@ -95,7 +96,9 @@ public class Mapa {
         kancelaria.nastavVychod(labak.getNazov(), labakKancelaria);
         
         // pridavanie predmetov
-        vratnica.pridajItemDoMiestnosti(new Kluc("StriebornyKluc","",-1, labakKancelaria));
+        Vratnik vratnik = new Vratnik(this.hra);
+        vratnik.getInventar().zoberItemDoInventara(new Kluc("StriebornyKluc","",-1, labakKancelaria));
+        vratnica.pridajNpcDoMiestnosti(vratnik);
         infocentrum.pridajItemDoMiestnosti(new Isic());
         bufet.pridajItemDoMiestnosti(new Navleky("Navleky", "Made in China",20));
 
@@ -124,13 +127,13 @@ public class Mapa {
             return;
         }
         
-        Miestnost novaMiestnost = dvere.skusPrechod(this.aktualnaMiestnost, this.hrac);
+        Miestnost novaMiestnost = dvere.skusPrechod(this.aktualnaMiestnost, this.hra.getHrac());
 
         if (novaMiestnost == null) {
             System.out.println("Nemate opravnenie na vstup!");
         } else {
             if (novaMiestnost.isTrebaNavleky()) {
-               if (!hrac.getInventar().maEquipnute(ItemType.ITEM_NAVLEKY)) {
+               if (!hra.getHrac().getInventar().maEquipnute(ItemType.ITEM_NAVLEKY)) {
                    System.out.println("Su potrebne navleky."); 
                    return;
                }

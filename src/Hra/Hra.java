@@ -38,7 +38,7 @@ public class Hra  {
     public Hra() {
         this.parser = new Parser();
         this.hrac = new Hrac("Yolo Swaggins");
-        this.mapa = new Mapa(hrac);
+        this.mapa = new Mapa(this);
     }
 
     /**
@@ -82,14 +82,18 @@ public class Hra  {
      */
     private boolean vykonajPrikaz(Prikaz prikaz) {
         boolean jeKoniec = false;
-
-        if (prikaz.jeNeznamy()) {
-            System.out.println("Nerozumiem, co mas na mysli...");
+        
+        if (this.hrac.getAktualnyPokecatelny() != null) {
+            IPokecatelny aktualny = this.hrac.getAktualnyPokecatelny();
+            if (aktualny.spracujPrikaz(prikaz)) {
+                System.out.println("Odisiel si od " + aktualny.getNazov() + ".");
+                this.hrac.setAktualnyPokecatelny(null);
+            }
             return false;
         }
         
-        if (this.hrac.getAktualnyPokecatelny() != null) {
-            this.hrac.getAktualnyPokecatelny().spracujPrikaz(prikaz);
+        if (prikaz.jeNeznamy()) {
+            System.out.println("Nerozumiem, co mas na mysli...");
             return false;
         }
 
@@ -113,6 +117,7 @@ public class Hra  {
             case "kuk":
                 // porozhliadni sa
                 this.mapa.getAktualnaMiestnost().vypisPredmety();
+                this.mapa.getAktualnaMiestnost().vypisNpc();
                 return false;
             case "zober":
                 // ked nie je co zobrat
@@ -203,5 +208,9 @@ public class Hra  {
         } else {
             return true;
         }
+    }
+
+    public Hrac getHrac() {
+        return hrac;
     }
 }
