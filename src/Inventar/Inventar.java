@@ -55,13 +55,14 @@ public class Inventar {
     }
 
     public void vypisPopisItemu(Prikaz prikaz) {
-        if (!prikaz.maParameter()) {
+        ArrayList<String> list = prikaz.getParameters();
+        if (list.size() < 1) {
             // ak prikaz nema parameter - druhe slovo - nevedno kam ist
             System.out.println("Chod kam?");
             return;
         }
 
-        String nazovItemu = prikaz.getParameter();
+        String nazovItemu = list.get(0);
         for (IItem item : this.inventar) {
             if (item.getNazov().equals(nazovItemu))
             {

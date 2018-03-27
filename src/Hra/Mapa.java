@@ -111,13 +111,14 @@ public class Mapa {
      * Inak sa vypise chybova sprava do terminaloveho okna.
      */
     public void chodDoMiestnosti(Prikaz prikaz) {
-        if (!prikaz.maParameter()) {
+        ArrayList<String> list = prikaz.getParameters();
+        if (list.size() < 1) {
             // ak prikaz nema parameter - druhe slovo - nevedno kam ist
             System.out.println("Chod kam?");
             return;
         }
 
-        String smer = prikaz.getParameter();
+        String smer = list.get(0);
 
         // Pokus o opustenie aktualnej miestnosti danym vychodom.
         IDvere dvere = this.aktualnaMiestnost.getPrechod(smer);

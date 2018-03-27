@@ -5,15 +5,18 @@
         <group>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Dvere/Dvere.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/NPC/IPokecatelny.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/PodmienkyVstupu.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Inventar/Inventar.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/NPC/Vratnik.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Hra.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Inventar/SlotyInventara.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Mapa.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Itemy/ItemType.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Prikaz.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Parser.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Itemy/Item.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Itemy/EquippableItem.java</file>
-            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/NazvyPrikazov.java</file>
+            <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hra/Wof00.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Dvere/ZamykatelneDvere.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Itemy/Navleky.java</file>
             <file>file:/C:/Users/kajanek6/Documents/WoF/src/Hrac/Hrac.java</file>

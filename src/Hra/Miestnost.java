@@ -116,13 +116,14 @@ public class Miestnost {
     }
     
     public IItem zoberPredmet(Prikaz prikaz) {
-        if (!prikaz.maParameter()) {
+        ArrayList<String> list = prikaz.getParameters();
+        if (list.size() < 1) {
             // ak prikaz nema parameter - druhe slovo - nevedno kam ist
             System.out.println("Aky predmet?");
             return null;
         }
 
-        String nazov = prikaz.getParameter();
+        String nazov = list.get(0);
         
         IItem hladany = null;
         for (IItem item : predmety) {

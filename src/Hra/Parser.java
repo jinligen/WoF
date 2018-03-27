@@ -1,5 +1,6 @@
 package Hra;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,14 +15,14 @@ import java.util.Scanner;
  * @version 2012.02.21
  */
 public class Parser {
-    private NazvyPrikazov prikazy;  // odkaz na pripustne nazvy prikazov
+    private Hra hra;
     private Scanner citac;         // zdroj vstupov od hraca
 
     /**
      * Vytvori citac na citanie vstupov z terminaloveho okna.
      */
-    public Parser() {
-        this.prikazy = new NazvyPrikazov();
+    public Parser(Hra hra) {
+        this.hra = hra;
         this.citac = new Scanner(System.in);
     }
 
@@ -34,20 +35,20 @@ public class Parser {
         String vstupnyRiadok = this.citac.nextLine();
 
         String prikaz = null;
-        String parameter = null;
+        ArrayList<String> parameter = new ArrayList<>();
 
         // najde prve dve slova v riadku 
         Scanner tokenizer = new Scanner(vstupnyRiadok);
         if (tokenizer.hasNext()) {
             prikaz = tokenizer.next();      // prve slovo
-            if (tokenizer.hasNext()) {
-                parameter = tokenizer.next();      // druhe slovo
+            while (tokenizer.hasNext()) {
+                parameter.add(tokenizer.next());      // druhe slovo
                 // vsimnite si, ze zbytok textu sa ignoruje
             }
         }
 
         // kontrola platnosti prikazu
-        if (this.prikazy.jePrikaz(prikaz)) {
+        if (this.hra.jePrikaz(prikaz)) {
             // vytvori platny prikaz
             return new Prikaz(prikaz, parameter);
         } else {

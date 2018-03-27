@@ -11,6 +11,7 @@ import Hrac.Hrac;
 import Inventar.Inventar;
 import Itemy.IItem;
 import Itemy.ItemType;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +20,15 @@ import Itemy.ItemType;
 public class Vratnik implements IPokecatelny{
     private Inventar inventar;
     private Hra hra;
+    
+    // konstantne pole nazvov prikazov
+    private static final String[] PLATNE_PRIKAZY = {
+        "vypisKluce","dajKluc","odid","pomoc"
+    };
+
+    public String[] getPlatnePrikazy() {
+        return PLATNE_PRIKAZY;
+    }
 
     public Vratnik(Hra hra) {
         this.inventar = new Inventar();
@@ -33,12 +43,13 @@ public class Vratnik implements IPokecatelny{
                 this.inventar.vypisInventar(ItemType.ITEM_KLUC);
                 break;
             case "dajKluc":
-                if (!prikaz.maParameter()) {
+                ArrayList<String> list = prikaz.getParameters();
+                if (list.size() < 1) {
                     System.out.println("Aky kluc?");
                     break;
                 }
 
-                String nazovKluca = prikaz.getParameter();
+                String nazovKluca = list.get(0);
                 IItem kluc = inventar.dajItem(nazovKluca);
                 if (kluc == null) {
                     System.out.println("Kluc sa nenasiel.");
@@ -55,6 +66,9 @@ public class Vratnik implements IPokecatelny{
                 break;
             case "odid":
                 return true;
+            case "pomoc":
+                getPrikazy();
+                break;
         }
         return false;
     }
@@ -62,7 +76,9 @@ public class Vratnik implements IPokecatelny{
     @Override
     public void getPrikazy() {
         System.out.println("Mozes pouzit tieto prikazy:");
-        System.out.println("vypisKluce dajKluc odid");
+        for (String string : PLATNE_PRIKAZY) {
+            System.out.print(string + " ");
+        }
     }
 
     @Override

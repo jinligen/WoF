@@ -15,4 +15,5 @@ public interface IPokecatelny {
     boolean spracujPrikaz(Prikaz prikaz);
     void getPrikazy();
     String getNazov();
+    String [] getPlatnePrikazy();
 }

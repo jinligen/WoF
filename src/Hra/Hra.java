@@ -6,6 +6,7 @@ import Itemy.IItem;
 import Dvere.ZamykatelneDvere;
 import Dvere.IDvere;
 import NPC.IPokecatelny;
+import java.util.ArrayList;
 
 /**
  * Trieda Hra je hlavna trieda aplikacie "World of FRI".
@@ -32,11 +33,17 @@ public class Hra  {
     private Mapa mapa;
     private Hrac hrac;
     
+    // konstantne pole nazvov prikazov
+    private static final String[] PLATNE_PRIKAZY = {
+        "chod", "ukonci", "pomoc", "zobrazInventar", "popisItemu", "kuk", "zober", "otocKlucom", "nasad", "pokecaj"
+    };
+    
+    
     /**
      * Vytvori a inicializuje hru.
      */
     public Hra() {
-        this.parser = new Parser();
+        this.parser = new Parser(this);
         this.hrac = new Hrac("Yolo Swaggins");
         this.mapa = new Mapa(this);
     }
@@ -83,6 +90,11 @@ public class Hra  {
     private boolean vykonajPrikaz(Prikaz prikaz) {
         boolean jeKoniec = false;
         
+        if (prikaz.jeNeznamy()) {
+            System.out.println("Nerozumiem, co mas na mysli...");
+            return false;
+        }
+        
         if (this.hrac.getAktualnyPokecatelny() != null) {
             IPokecatelny aktualny = this.hrac.getAktualnyPokecatelny();
             if (aktualny.spracujPrikaz(prikaz)) {
@@ -91,13 +103,9 @@ public class Hra  {
             }
             return false;
         }
-        
-        if (prikaz.jeNeznamy()) {
-            System.out.println("Nerozumiem, co mas na mysli...");
-            return false;
-        }
 
         String nazovPrikazu = prikaz.getNazov();
+        
         
         switch (nazovPrikazu) {
             case "pomoc":
@@ -126,12 +134,14 @@ public class Hra  {
                     this.hrac.getInventar().zoberItemDoInventara(item);
                 return false;
             case "otocKlucom":
-                if (!prikaz.maParameter()) {
+            {
+                ArrayList<String> list = prikaz.getParameters();
+                if (list.size() < 1) {
                     System.out.println("Ake dvere?");
                     return false;
                 }
 
-                String nazovDveri = prikaz.getParameter();
+                String nazovDveri = list.get(0);
                 IDvere dvere = this.mapa.getDvere(nazovDveri);
                 
                 if (dvere == null) {
@@ -149,22 +159,28 @@ public class Hra  {
                     System.out.println("Dvere nevyzaduju kluc.");
                 }
                 return false;
+            }
             case "nasad":
-                if (!prikaz.maParameter()) {
+            {
+                ArrayList<String> list = prikaz.getParameters();
+                if (list.size() < 1) {
                     System.out.println("Aky item?");
                     return false;
                 }
 
-                String nazovItemu = prikaz.getParameter();
+                String nazovItemu = list.get(0);
                 hrac.nasadItem(nazovItemu);
                 return false;
+            }
             case "pokecaj":
-                if (!prikaz.maParameter()) {
+            {
+                ArrayList<String> list = prikaz.getParameters();
+                if (list.size() < 1) {
                     System.out.println("Aky npc?");
                     return false;
                 }
 
-                String nazovNpc = prikaz.getParameter();
+                String nazovNpc = list.get(0);
                 IPokecatelny npc = this.mapa.getAktualnaMiestnost().dajNpc(nazovNpc);
                 if (npc == null) {
                     System.out.println("Npc sa nenaslo.");
@@ -174,6 +190,7 @@ public class Hra  {
                 this.hrac.setAktualnyPokecatelny(npc);
                 npc.getPrikazy();
                 return false;
+            }
             default:
                 return false;
         }
@@ -190,7 +207,9 @@ public class Hra  {
         this.mapa.getAktualnaMiestnost().vypisVychody();
         System.out.println();
         System.out.println("Mozes pouzit tieto prikazy:");
-        System.out.println("chod ukonci pomoc zobrazInventar popisItemu kuk zober otocKlucom nasad pokecaj");
+        for (String string : PLATNE_PRIKAZY) {
+            System.out.print(string + " ");
+        }
     }
 
     /** 
@@ -202,7 +221,8 @@ public class Hra  {
      * @return true, ak prikaz konci hru, inak false.
      */
     private boolean ukonciHru(Prikaz prikaz) {
-        if (prikaz.maParameter()) {
+        ArrayList<String> list = prikaz.getParameters();
+        if (list.get(0) != null) {
             System.out.println("Ukonci, co?");
             return false;
         } else {
@@ -212,5 +232,20 @@ public class Hra  {
 
     public Hrac getHrac() {
         return hrac;
+    }
+    
+    public boolean jePrikaz(String nazov) {
+        String [] prikazy = this.PLATNE_PRIKAZY;
+        IPokecatelny pokec = this.hrac.getAktualnyPokecatelny();
+        if (pokec != null) {
+            prikazy = pokec.getPlatnePrikazy();
+        }
+        for (int i = 0; i < prikazy.length; i++) {
+            if (prikazy[i].equals(nazov)) {
+                return true;
+            }
+        }
+        // ak algoritmus dosiahne tento bod, parameter nie je platny prikaz
+        return false;
     }
 }
