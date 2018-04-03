@@ -3,7 +3,7 @@ package Dvere;
 
 import Hrac.Hrac;
 import Dvere.IDvere;
-import Hra.Miestnost;
+import Miestnosti.Miestnost;
 import Hra.PodmienkyVstupu;
 
 /*

@@ -5,6 +5,7 @@ import Hrac.Hrac;
 import Itemy.IItem;
 import Dvere.ZamykatelneDvere;
 import Dvere.IDvere;
+import Miestnosti.Miestnost;
 import NPC.IPokecatelny;
 import java.util.ArrayList;
 
@@ -210,6 +211,18 @@ public class Hra  {
         for (String string : PLATNE_PRIKAZY) {
             System.out.print(string + " ");
         }
+        Miestnost aktualnaMiestnost = this.mapa.getAktualnaMiestnost();
+        if (aktualnaMiestnost instanceof IPrikazy)
+        {
+            IPrikazy prikazovaMiestnost = (IPrikazy)aktualnaMiestnost;
+            prikazovaMiestnost.getPrikazy();
+        }
+        for (IDvere dvere : aktualnaMiestnost.getVsetkyDvere()) {
+            if (dvere instanceof IPrikazy) {
+                IPrikazy prikazoveDvere = (IPrikazy)dvere;
+                prikazoveDvere.getPrikazy();
+            }
+        }
     }
 
     /** 
@@ -239,10 +252,32 @@ public class Hra  {
         IPokecatelny pokec = this.hrac.getAktualnyPokecatelny();
         if (pokec != null) {
             prikazy = pokec.getPlatnePrikazy();
-        }
-        for (int i = 0; i < prikazy.length; i++) {
-            if (prikazy[i].equals(nazov)) {
-                return true;
+            for (int i = 0; i < prikazy.length; i++) {
+                if (prikazy[i].equals(nazov)) {
+                    return true;
+                }
+            }
+        } else {
+            ArrayList<String[]> poliaPrikazov = new ArrayList<>();
+            poliaPrikazov.add(prikazy);
+            Miestnost aktualnaMiestnost = this.mapa.getAktualnaMiestnost();
+            if (aktualnaMiestnost instanceof IPrikazy)
+            {
+                IPrikazy prikazovaMiestnost = (IPrikazy)aktualnaMiestnost;
+                poliaPrikazov.add(prikazovaMiestnost.getPlatnePrikazy());
+            }
+            for (IDvere dvere : aktualnaMiestnost.getVsetkyDvere()) {
+                if (dvere instanceof IPrikazy) {
+                    IPrikazy prikazoveDvere = (IPrikazy)dvere;
+                    poliaPrikazov.add(prikazoveDvere.getPlatnePrikazy());
+                }
+            }
+            for (String[] polePrikazov : poliaPrikazov) {
+                for (int i = 0; i < polePrikazov.length; i++) {
+                    if (polePrikazov[i].equals(nazov)) {
+                        return true;
+                    }
+                }
             }
         }
         // ak algoritmus dosiahne tento bod, parameter nie je platny prikaz

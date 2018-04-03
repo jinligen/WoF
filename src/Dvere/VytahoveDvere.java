@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package NPC;
-
-import Hra.IPrikazy;
-import Hra.Prikaz;
+package Dvere;
 
 /**
  *
  * @author kajanek6
  */
-public interface IPokecatelny extends IPrikazy {
-    String getNazov();
+public class VytahoveDvere {
+    
 }

@@ -1,6 +1,7 @@
 package Hra;
 
 
+import Miestnosti.Miestnost;
 import Dvere.Dvere;
 import Hrac.Hrac;
 import Itemy.Isic;

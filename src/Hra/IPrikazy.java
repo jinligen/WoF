@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package NPC;
-
-import Hra.IPrikazy;
-import Hra.Prikaz;
+package Hra;
 
 /**
  *
  * @author kajanek6
  */
-public interface IPokecatelny extends IPrikazy {
-    String getNazov();
+public interface IPrikazy {
+    void getPrikazy();
+    boolean spracujPrikaz(Prikaz prikaz);
+    String[] getPlatnePrikazy();
 }

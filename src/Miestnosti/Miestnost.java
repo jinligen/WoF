@@ -1,4 +1,4 @@
-package Hra;
+package Miestnosti;
 
 /**
  * Trieda Miestnost realizuje jednu miestnost/priestor v celom priestore hry.
@@ -14,8 +14,10 @@ package Hra;
  */
 import Itemy.IItem;
 import Dvere.IDvere;
+import Hra.Prikaz;
 import NPC.IPokecatelny;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -146,5 +148,9 @@ public class Miestnost {
 
     public boolean isTrebaNavleky() {
         return trebaNavleky;
+    }
+    
+    public Collection<IDvere> getVsetkyDvere() {
+        return this.miestnosti.values();
     }
 }
