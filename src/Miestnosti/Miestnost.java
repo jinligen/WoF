@@ -153,4 +153,10 @@ public class Miestnost {
     public Collection<IDvere> getVsetkyDvere() {
         return this.miestnosti.values();
     }
+
+    protected HashMap<String, IDvere> getMiestnosti() {
+        return miestnosti;
+    }
+    
+    
 }

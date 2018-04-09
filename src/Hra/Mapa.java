@@ -8,8 +8,10 @@ import Itemy.Isic;
 import Itemy.Kluc;
 import Dvere.ZamykatelneDvere;
 import Dvere.IDvere;
+import Dvere.VytahoveDvere;
 import Itemy.ItemType;
 import Itemy.Navleky;
+import Miestnosti.Vytah;
 import NPC.Vratnik;
 import java.util.ArrayList;
 
@@ -46,9 +48,10 @@ public class Mapa {
         // vratnica
         Miestnost fra12 = new Miestnost("FRA12", "Najs ucebna", true);
         Miestnost chodba = new Miestnost("chodba","Pozor smyka sa");
-        Miestnost vytah = new Miestnost("vytah","nefunguje");
         Miestnost infocentrum = new Miestnost("infocentrum", "Questnovna");
         Miestnost vratnica = new Miestnost("vratnica","Straty a nalezy");
+        Vytah vytah = new Vytah("Vytah","Vytah v chodbe", -1, 3);
+        Miestnost dolnaChodba = new Miestnost("dolnachodba","Chodba na dolnom poschodi");
         // vytah
         // zbrojnica
         // heliport
@@ -58,9 +61,13 @@ public class Mapa {
         chodba.nastavVychod(fra12.getNazov(), chodbaFra12);
         fra12.nastavVychod(chodba.getNazov(), chodbaFra12);
         
-        Dvere chodbaVytah = new Dvere(chodba, vytah, PodmienkyVstupu.PODMIENKA_ZIADNA);
+        VytahoveDvere chodbaVytah = new VytahoveDvere(chodba, vytah, PodmienkyVstupu.PODMIENKA_ZIADNA, vytah, 0);
         chodba.nastavVychod(vytah.getNazov(), chodbaVytah);
         vytah.nastavVychod(chodba.getNazov(), chodbaVytah);
+        
+        VytahoveDvere dolnaChodbaVytah = new VytahoveDvere(dolnaChodba, vytah, PodmienkyVstupu.PODMIENKA_ZIADNA, vytah, -1);
+        dolnaChodba.nastavVychod(vytah.getNazov(), dolnaChodbaVytah);
+        vytah.nastavVychod(dolnaChodba.getNazov(), dolnaChodbaVytah);
         
         Dvere chodbaTerasa = new Dvere(chodba, terasa, PodmienkyVstupu.PODMIENKA_ZIADNA);
         chodba.nastavVychod(terasa.getNazov(), chodbaTerasa);
@@ -95,6 +102,8 @@ public class Mapa {
         ZamykatelneDvere labakKancelaria = new ZamykatelneDvere(labak, kancelaria);
         labak.nastavVychod(kancelaria.getNazov(), labakKancelaria);
         kancelaria.nastavVychod(labak.getNazov(), labakKancelaria);
+        
+        
         
         // pridavanie predmetov
         Vratnik vratnik = new Vratnik(this.hra);
