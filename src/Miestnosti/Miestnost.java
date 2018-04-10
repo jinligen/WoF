@@ -24,7 +24,7 @@ import java.util.Map;
 public class Miestnost {
     private String popisMiestnosti;
     private String nazov;
-    private HashMap<String, IDvere> miestnosti;
+    private HashMap<String, IDvere> dvere;
     private ArrayList<IItem> predmety;
     private boolean trebaNavleky;
     private HashMap<String, IPokecatelny> npc;
@@ -39,7 +39,7 @@ public class Miestnost {
     public Miestnost(String nazov, String popis) {
         this.popisMiestnosti = popis;
         this.nazov = nazov;
-        this.miestnosti = new HashMap<>();
+        this.dvere = new HashMap<>();
         this.predmety = new ArrayList<>();
         this.trebaNavleky = false;
         this.npc = new HashMap<>();
@@ -48,7 +48,7 @@ public class Miestnost {
     public Miestnost(String nazov, String popis, boolean trebaNavleky) {
         this.popisMiestnosti = popis;
         this.nazov = nazov;
-        this.miestnosti = new HashMap<>();
+        this.dvere = new HashMap<>();
         this.predmety = new ArrayList<>();
         this.trebaNavleky = trebaNavleky;
         this.npc = new HashMap<>();
@@ -83,7 +83,7 @@ public class Miestnost {
      * @param zapad miestnost smerom na zapad.
      */
     public void nastavVychod(String nazovDveri, IDvere dvere) {
-        this.miestnosti.put(nazovDveri, dvere);
+        this.dvere.put(nazovDveri, dvere);
     }
 
     /**
@@ -96,14 +96,14 @@ public class Miestnost {
     public void vypisVychody() {
         System.out.println("Teraz si v miestnosti " + this.getPopis());
         System.out.print("Vychody: ");
-        for (Map.Entry<String, IDvere> data : this.miestnosti.entrySet()) {
+        for (Map.Entry<String, IDvere> data : this.dvere.entrySet()) {
             System.out.print(data.getKey()+ " ");
         }
         System.out.println();
     }
     
     public IDvere getPrechod(String ciel) {
-        return this.miestnosti.get(ciel);
+        return this.dvere.get(ciel);
     }
     
     public String getNazov() {
@@ -151,11 +151,11 @@ public class Miestnost {
     }
     
     public Collection<IDvere> getVsetkyDvere() {
-        return this.miestnosti.values();
+        return this.dvere.values();
     }
 
-    protected HashMap<String, IDvere> getMiestnosti() {
-        return miestnosti;
+    protected HashMap<String, IDvere> getDvere() {
+        return dvere;
     }
     
     

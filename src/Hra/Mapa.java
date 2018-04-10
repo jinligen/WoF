@@ -52,6 +52,9 @@ public class Mapa {
         Miestnost vratnica = new Miestnost("vratnica","Straty a nalezy");
         Vytah vytah = new Vytah("Vytah","Vytah v chodbe", -1, 3);
         Miestnost dolnaChodba = new Miestnost("dolnachodba","Chodba na dolnom poschodi");
+        Miestnost dekanat = new Miestnost("dekanat","Dekanat na prvom poschodi");
+        Miestnost atg = new Miestnost("atg","Ucebna ATG");
+        Miestnost fra323 = new Miestnost("fra323","Nahodna ucebna");
         // vytah
         // zbrojnica
         // heliport
@@ -68,6 +71,18 @@ public class Mapa {
         VytahoveDvere dolnaChodbaVytah = new VytahoveDvere(dolnaChodba, vytah, PodmienkyVstupu.PODMIENKA_ZIADNA, vytah, -1);
         dolnaChodba.nastavVychod(vytah.getNazov(), dolnaChodbaVytah);
         vytah.nastavVychod(dolnaChodba.getNazov(), dolnaChodbaVytah);
+        
+        VytahoveDvere dekanatVytah = new VytahoveDvere(dekanat, vytah, PodmienkyVstupu.PODMIENKA_ZIADNA, vytah, 1);
+        dekanat.nastavVychod(vytah.getNazov(), dekanatVytah);
+        vytah.nastavVychod(dekanat.getNazov(), dekanatVytah);
+        
+        VytahoveDvere atgVytah = new VytahoveDvere(atg, vytah, PodmienkyVstupu.PODMIENKA_ZIADNA, vytah, 2);
+        atg.nastavVychod(vytah.getNazov(), atgVytah);
+        vytah.nastavVychod(atg.getNazov(), atgVytah);
+        
+        VytahoveDvere fra323Vytah = new VytahoveDvere(fra323, vytah, PodmienkyVstupu.PODMIENKA_ZIADNA, vytah, 3);
+        fra323.nastavVychod(vytah.getNazov(), fra323Vytah);
+        vytah.nastavVychod(fra323.getNazov(), fra323Vytah);
         
         Dvere chodbaTerasa = new Dvere(chodba, terasa, PodmienkyVstupu.PODMIENKA_ZIADNA);
         chodba.nastavVychod(terasa.getNazov(), chodbaTerasa);

@@ -193,8 +193,22 @@ public class Hra  {
                 return false;
             }
             default:
-                return false;
+                break;
         }
+        
+        Miestnost aktualnaMiestnost = this.mapa.getAktualnaMiestnost();
+        if (aktualnaMiestnost instanceof IPrikazy)
+        {
+            IPrikazy prikazovaMiestnost = (IPrikazy)aktualnaMiestnost;
+            prikazovaMiestnost.spracujPrikaz(prikaz);
+        }
+        for (IDvere dvere : aktualnaMiestnost.getVsetkyDvere()) {
+            if (dvere instanceof IPrikazy) {
+                IPrikazy prikazoveDvere = (IPrikazy)dvere;
+                prikazoveDvere.spracujPrikaz(prikaz);
+            }
+        }
+        return false;
     }
 
     // implementacie prikazov:
